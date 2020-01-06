@@ -20,11 +20,12 @@ const ButtonWrapper = styled.button`
   }
 `
 
-function Button( { add, cornerPosition, defaultB, marginLeft, plus, handleClick, label, restaurants, route } ) {
+function Button( { add, cornerPosition, defaultB, marginLeft, plus, handleClick, isRouting, label, restaurants, route, type } ) {
   return (
     <Link
-      as={ `/add/${normalizePathname( route )}` }
-      href="/add/[restaurant]"
+      as={ route && `/add/${normalizePathname( route )}` }
+      href={ route && `/add/[restaurant]` }
+      onClick={ handleClick }
     >
       <ButtonWrapper
         add={ add }
@@ -34,6 +35,7 @@ function Button( { add, cornerPosition, defaultB, marginLeft, plus, handleClick,
         marginLeft={ marginLeft }
         plus={ plus }
         restaurants={ restaurants }
+        type={ type }
       >
         <a>
           {plus ? '+' : `${label}`}
@@ -50,7 +52,9 @@ Button.propTypes = {
   label: string,
   handleClick: func,
   marginLeft: string,
-  plus: bool
+  plus: bool,
+  route: string,
+  type: string
 }
 
 Button.defaultProps = {
@@ -60,7 +64,9 @@ Button.defaultProps = {
   label: '',
   handleClick: () => {},
   marginLeft: '0',
-  plus: false
+  plus: false,
+  route: '',
+  type: 'button'
 }
 
 export default Button
