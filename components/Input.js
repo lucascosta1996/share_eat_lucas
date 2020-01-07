@@ -67,6 +67,7 @@ function Input( props ) {
 }
 
 Input.propTypes = {
+  label: string,
   name: string,
   textarea: bool
 }

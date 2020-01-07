@@ -21,7 +21,7 @@ function DishForm() {
   
   const handleSubmit = ( event ) => {
       event.preventDefault()
-      alert(`Submitting Name ${name} ${price}`)
+      alert(`Submitting ${name}`)
       resetName()
       resetPrice()
   }
@@ -34,7 +34,7 @@ function DishForm() {
         <Input label="Descrição do prato" placeholder="Insira uma descrição" textarea={ true } warningtext="*A descrição deve conter até 200 caracteres." />
       </div>
       <div className="submit-button--wrapper">
-        <Button defaultB type="submit" label="Salvar" route="" />
+        <Button defaultB type="submit" handleClick={ handleSubmit } label="Salvar" />
       </div>
     </FormWrapper>
   );
