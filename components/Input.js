@@ -50,9 +50,9 @@ function Input( props ) {
       {props.label}
       {
         props.textarea ? (
-          <textarea type="text" {...props } maxLength={200} />
+          <textarea type="text" { ...props } maxLength={ 200 } />
         ) : (
-          <input type="text" {...props} name={ props.mask } />
+          <input type="text" { ...props } name={ props.mask } />
         )
       }
       {
@@ -68,8 +68,14 @@ function Input( props ) {
 
 Input.propTypes = {
   label: string,
-  name: string,
+  mask: string,
   textarea: bool
+}
+
+Input.defaultProps = {
+  label: '',
+  mask: '',
+  textarea: false
 }
 
 export default Input
