@@ -19,9 +19,6 @@ export const useInput = () => {
         } else {
           setValue( event.target.value )
         }
-      },
-      onKeyUp: event => {
-        
       }
     }
   }
